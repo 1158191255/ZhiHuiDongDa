@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
+    <string name="empty">empty</string>
+    <string name="app_name">智慧东大</string>
+    <string name="erweima">二维码</string>
+    <string name="saomakuang">将取景框对准二维码/条形码,即可自动扫描</string>
+    <string name="number">学工号</string>
+    <string name="name">姓名</string>
+    <string name="location">验证位置</string>
+    <string name="yes">确认</string>
+</resources>

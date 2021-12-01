@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://www.io.garrick.cn/enu -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="rkcFSjMKZapFH7qPqKrzZhyaayRcZFetH8CbvY8I">
+    <link href="enu.css" rel="stylesheet">
+    <link href="font-awesome.min.css" rel="stylesheet">
+    <title>东北大学测温验证平台</title>
+    <style>
+        @-webkit-keyframes pulse {
+            50% {
+                -webkit-transform: scale3d(1.2, 1.2, 1.2);
+                transform: scale3d(1.2, 1.2, 1.2);
+            }
+        }
+        @keyframes  pulse {
+            50% {
+                -webkit-transform: scale3d(1.2, 1.2, 1.2);
+                transform: scale3d(1.2, 1.2, 1.2);
+            }
+        }
+        .list-group {
+            padding: 1em;
+        }
+        .list-group-item {
+            font-size: 1.4em;
+            padding: 0.1em;
+            border: 0px;
+        }
+    </style>
+
+    <!--<script type="text/javascript" src="name.json"></script>-->
+
+    <script type="text/javascript">
+        function curDateTime() {
+            var d = new Date();
+            var year = d.getYear();
+            var month = d.getMonth() + 1;
+            var date = d.getDate();
+            var day = d.getDay();
+            var hours = d.getHours();
+            var minutes = d.getMinutes();
+            var seconds = d.getSeconds();
+            var ms = d.getMilliseconds();
+            var curDateTime = String(1900 + parseInt(year));
+            if (month > 9)
+                curDateTime = curDateTime + "-" + month;
+            else
+                curDateTime = curDateTime + "-0" + month;
+            if (date > 9)
+                curDateTime = curDateTime + "-" + date;
+            else
+                curDateTime = curDateTime + "-0" + date;
+            if (hours > 9)
+                curDateTime = curDateTime + " " + hours;
+            else
+                curDateTime = curDateTime + "0" + hours;
+            if (minutes > 9)
+                curDateTime = curDateTime + ":" + minutes;
+            else
+                curDateTime = curDateTime + ":0" + minutes;
+            if (seconds > 9)
+                curDateTime = curDateTime + ":" + seconds;
+            else
+                curDateTime = curDateTime + ":0" + seconds;
+            return curDateTime;
+        }
+        <!--function setTime() {-->
+            <!--document.getElementById("time").innerText = "时间：" + curDateTime();-->
+        <!--}-->
+        function setInfo() {
+            urlinfo=decodeURI(window.location.href);
+            len=urlinfo.length;
+            offset=urlinfo.indexOf("?");
+            newsidinfo=urlinfo.substr(offset+1,len)
+            newsids=newsidinfo.split("=");
+            number=newsids[0];
+            stuname=newsids[1];
+            distress=newsids[2];
+
+            <!--document.getElementById("stu-name").innerText = document.getElementById("name").value;-->
+            <!--document.getElementById("stu-number").innerText = document.getElementById("number").value;-->
+            <!--document.getElementById("stu-distress").innerText = document.getElementById("distress").value;-->
+            document.getElementById("stu-number").innerText = number
+            document.getElementById("stu-name").innerText = stuname
+            document.getElementById("stu-distress").innerText = distress
+            document.getElementById("time").innerText = "时间：" + curDateTime();
+            document.getElementById("input-box").style.display = "none";
+            document.getElementById("app").style.display = "";
+        }
+    </script>
+</head>
+
+<body onload="setInfo()" >
+
+<!--<div class="input-box" id="input-box" style="text-align: center;">-->
+    <!--<br>-->
+    <!--<label>姓  名：<input id="name"></label>-->
+    <!--<br>-->
+    <!--<label>学工号：<input id="number"></label>-->
+    <!--<br>-->
+    <!--<label>地  址：<input id="distress"></label>-->
+    <!--<br>-->
+    <!--<button onclick="setInfo()">“进入校园”</button>-->
+<!--</div>-->
+
+<!--<div id="app" style="display: none;">-->
+<div id="app">
+    <div class="card border-0 text-center" style="color: RGB(42,100,56)">
+        <div class="card-body">
+            <h2 class="card-title p-2">东北大学通行验证</h2>
+
+            <div class="animated infinite pulse p-2">
+                <i class="fa fa-arrow-circle-up" style="font-size: 16em;"></i>
+            </div>
+
+            <p class="card-text p-2" style="font-size: 1.3em;" id="time"></p>
+        </div>
+    </div>
+
+    <ul class="list-group list-group-flush" style="background-color: RGB(42,100,56)">
+        <li class="list-group-item bg-transparent text-white d-flex">
+            <div style="min-width: 4em; text-align-last: justify;">学工号</div>：<div id="stu-number"></div>
+        </li>
+        <li class="list-group-item bg-transparent text-white d-flex">
+            <div style="min-width: 4em; text-align-last: justify;">姓名</div>：<div id="stu-name"></div>
+        </li>
+        <li class="list-group-item bg-transparent text-white d-flex">
+            <div style="min-width: 4em; text-align-last: justify;">验证位置</div>：<div id="stu-distress"></div>
+        </li>
+        <li class="list-group-item bg-transparent text-white d-flex">
+            <div style="min-width: 4em; text-align-last: justify;">进出状态</div>：<div>进入</div>
+        </li>
+    </ul>
+</div>
+
+<div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+      <div class="xl-chrome-ext-bar__logo"></div>
+
+      <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+      <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+    </div></body></html>
